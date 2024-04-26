@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Gym {% endblock title %}
+{% block content %}
+<body>
+   <header class="header">
+    <div class="left">
+    <a href="#">
+        {% for homepagecontent in logo %}
+        {% if homepagecontent.logo %}
+        <img src="{{ homepagecontent.logo.url }}" alt="logo">
+        {% endif %}
+        {% endfor %}
+    </a>
+    </div>
+    <div class="mid">
+        <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">BMI</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <button class="btn">Call Us Now</button>
+    </div>
+   </header>
+   <div class="container">
+    <h1>Join the best gym of Punjab now</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" name="first_name" placeholder="Enter your Name">
+        </div>
+        <div class="form-group">
+            <input type="text" name="last_name" placeholder="Enter your Last Name">
+        </div>
+        <div class="form-group">
+            <input type="text" name="locality" placeholder="Enter your Locality">
+        </div>
+        <div class="form-group">
+            <input type="text" name="email" placeholder="Enter your Email Id">
+        </div>
+        <div class="form-group">
+            <input type="text" name="phone" placeholder="Enter your Phone Number">
+        </div>
+        <button class="btn">Submit</button>
+    </form>
+</div>
+{% endblock content %}
